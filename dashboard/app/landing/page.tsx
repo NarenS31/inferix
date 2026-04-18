@@ -94,19 +94,39 @@ const plans = [
 const footerColumns = [
   {
     title: "Product",
-    links: ["Routing", "Caching", "Logs", "Pricing"],
+    links: [
+      { label: "Routing", href: "/product/routing" },
+      { label: "Caching", href: "/product/caching" },
+      { label: "Logs", href: "/product/logs" },
+      { label: "Pricing", href: "/pricing" },
+    ],
   },
   {
     title: "Docs",
-    links: ["Quickstart", "API", "Providers", "Changelog"],
+    links: [
+      { label: "Quickstart", href: "/docs/quickstart" },
+      { label: "API", href: "/docs/api" },
+      { label: "Providers", href: "/docs/providers" },
+      { label: "Changelog", href: "/docs/changelog" },
+    ],
   },
   {
     title: "Company",
-    links: ["About", "Customers", "Contact", "Careers"],
+    links: [
+      { label: "About", href: "/company/about" },
+      { label: "Customers", href: "/company/customers" },
+      { label: "Contact", href: "/company/contact" },
+      { label: "Careers", href: "/company/careers" },
+    ],
   },
   {
     title: "Legal",
-    links: ["Privacy", "Terms", "Security", "DPA"],
+    links: [
+      { label: "Privacy", href: "/legal/privacy" },
+      { label: "Terms", href: "/legal/terms" },
+      { label: "Security", href: "/legal/security" },
+      { label: "DPA", href: "/legal/dpa" },
+    ],
   },
 ];
 
@@ -653,7 +673,9 @@ export default function LandingPage() {
                 </div>
                 <div className="mt-5 space-y-3 text-sm text-[#94A3B8]">
                   {column.links.map((link) => (
-                    <div key={link}>{link}</div>
+                    <div key={link.label}>
+                      <a href={link.href} className="hover:text-[#F1F5F9] transition-colors">{link.label}</a>
+                    </div>
                   ))}
                 </div>
               </div>

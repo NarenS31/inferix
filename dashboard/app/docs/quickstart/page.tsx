@@ -1,0 +1,2 @@
+import { redirect } from "next/navigation";
+export default function QuickstartRedirect() { redirect("/docs/getting-started"); }
