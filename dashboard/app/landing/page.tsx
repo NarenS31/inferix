@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Inferix | Cut your LLM costs by 30-50% automatically",
+  title: "Inferix | LLM routing infrastructure",
   description:
     "One URL change. Works with every provider. No code rewrites.",
 };
@@ -12,7 +12,7 @@ const providers = ["Anthropic", "OpenAI", "Google", "Mistral", "Groq"];
 
 const valueProps = [
   {
-    stat: "30-50%",
+    stat: "Up to 50%",
     label: "Lower inference spend",
     description: "Route to the cheapest model that still clears your quality bar.",
   },
@@ -240,6 +240,55 @@ function DashboardScreenshot() {
   );
 }
 
+function RequestFlowDiagram() {
+  return (
+    <div className="font-mono text-[11px] text-[#E2E8F0] bg-[#0A0F14] border border-[#1E2A38]" style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(30, 42, 56, 0.3) 39px, rgba(30, 42, 56, 0.3) 40px)" }}>
+      <div className="border-b border-[#1E2A38] px-3 py-2 bg-[#080C10] flex justify-between text-[10px] text-[#64748B]">
+        <span>req_8a92f</span>
+        <span>2026-04-18 21:02:47.284Z</span>
+      </div>
+
+      <div className="p-3 space-y-2">
+        {/* Evaluation header */}
+        <div className="text-[#94A3B8] text-[10px] uppercase tracking-wider">policy: cost ≤ $0.001 | latency ≤ 120ms</div>
+
+        {/* Candidate routes */}
+        <div className="space-y-1 mt-2">
+          {/* Failed attempt */}
+          <div className="border border-[#5F3B3B] bg-[#2A1515] px-2 py-1 flex justify-between">
+            <div><span className="text-[#FF6B6B]">✗</span> anthropic claude-opus</div>
+            <div className="text-[#FF6B6B]">error: rate_limit_exceeded</div>
+          </div>
+
+          {/* Over cost ceiling */}
+          <div className="border border-[#5F4A3B] bg-[#2A1F15] px-2 py-1 flex justify-between">
+            <div><span className="text-[#FFB366]">○</span> openai gpt-4o</div>
+            <div className="text-[#FFB366]">cost $0.0015 &gt; limit</div>
+          </div>
+
+          {/* Over latency threshold */}
+          <div className="border border-[#3F3F48] bg-[#1A1A20] px-2 py-1 flex justify-between">
+            <div><span className="text-[#808899]">○</span> google gemini-pro</div>
+            <div className="text-[#808899]">latency 156ms &gt; 120ms</div>
+          </div>
+
+          {/* Selected route */}
+          <div className="border border-[#2F5F3F] bg-[#1A2A1F] px-2 py-1 flex justify-between font-semibold">
+            <div><span className="text-[#4ADE80]">→</span> groq llama-3-70b</div>
+            <div className="text-[#4ADE80]">cost $0.0008 latency 87ms</div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="border-t border-[#1E2A38] mt-3 pt-2 text-[#64748B] text-[9px] flex justify-between">
+          <span>route_time: 12ms</span>
+          <span>cache_hit: 0/1</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CodeWindow() {
   const beforeLines: Array<{ content: ReactNode; highlighted?: boolean }> = [
     {
@@ -448,64 +497,42 @@ export default function LandingPage() {
       </header>
 
       <main>
-        <section className="overflow-hidden px-6 pb-8 pt-[140px] md:pb-12 md:pt-[164px]">
-          <div className="mx-auto max-w-[1100px] text-center">
-            <div className="relative mx-auto max-w-[960px]">
-              <div
-                className="pointer-events-none absolute left-1/2 top-[-140px] h-[340px] w-[340px] -translate-x-1/2 rounded-full"
-                style={{ background: "radial-gradient(circle, rgba(6,182,212,0.18) 0%, rgba(6,182,212,0) 72%)" }}
-              />
-
-              <div className="relative inline-flex items-center gap-2 rounded-full border border-[#1E2A38] bg-[#0D1117] px-4 py-2 text-sm font-medium text-[#94A3B8]">
-                <span className="h-2 w-2 rounded-full bg-[#06B6D4]" />
+        <section className="overflow-hidden border-b border-[#1E2A38] bg-[#080C10] px-6 pb-8 pt-[120px] text-[#F1F5F9] md:pb-10 md:pt-[136px]">
+          <div className="mx-auto grid max-w-[1100px] gap-8 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-10">
+            <div className="max-w-[580px] border-l border-[#1E2A38] pl-5 md:pl-6">
+              <div className="inline-flex items-center gap-2 border border-[#1E2A38] bg-[#0A0F14] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#64748B]">
                 LLM Infrastructure
               </div>
 
-              <h1
-                className="relative mt-8 text-[52px] font-black tracking-[-0.06em] text-[#F1F5F9] md:text-[80px] lg:text-[96px]"
-                style={{ lineHeight: 0.98 }}
-              >
-                Cut your LLM costs
-                <br />
-                by <span className="text-[#06B6D4]">30-50%</span>. Automatically.
+              <h1 className="mt-4 max-w-[540px] text-[36px] font-black leading-[1.08] tracking-[-0.04em] text-[#F1F5F9] md:text-[52px]">
+                Route by policy, not luck.
               </h1>
 
-              <p className="mx-auto mt-8 max-w-[760px] text-[20px] font-light leading-[1.45] text-[#94A3B8] md:text-[24px]">
-                One URL change. Works with every provider. No code rewrites.
+              <p className="mt-4 max-w-[500px] text-[15px] leading-6 text-[#94A3B8] md:text-[16px]">
+                Every request evaluated against your constraints. Failed routes fall back automatically. All decisions logged.
               </p>
 
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  href="/login"
-                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-[#06B6D4] px-7 py-4 text-lg font-semibold text-[#080C10] transition-opacity hover:opacity-90"
-                >
-                  Start for free -&gt;
-                </a>
-                <a
-                  href="#how-it-works"
-                  className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-[#1E2A38] px-7 py-4 text-lg font-medium text-[#F1F5F9] transition-colors hover:border-[#2B3B4C] hover:bg-[#0D1117]"
-                >
-                  See how it works
-                </a>
-              </div>
-
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-sm text-[#94A3B8]">
-                <span className="w-full md:w-auto">Works with Anthropic, OpenAI, Google, Mistral, Groq</span>
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] text-[#64748B]">
+                <span className="font-semibold text-[#94A3B8]">Works with:</span>
                 {providers.map((provider) => (
-                  <span
-                    key={provider}
-                    className="rounded-full border border-[#1E2A38] bg-[#0D1117] px-3 py-1.5 text-sm text-[#94A3B8]"
-                  >
+                  <span key={provider}>
                     {provider}
                   </span>
                 ))}
               </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
+                <a href="#how-it-works" className="font-medium text-[#06B6D4] hover:text-[#67E8F9]">
+                  See routing live →
+                </a>
+                <a href="/login" className="border border-[#1E2A38] px-3.5 py-2 font-medium text-[#F1F5F9] transition-colors hover:border-[#2B3B4C] hover:bg-[#0A0F14]">
+                  Open dashboard
+                </a>
+              </div>
             </div>
 
-            <div className="mt-16 md:mt-20">
-              <div className="mx-auto max-w-[1020px] [transform:perspective(2400px)_rotateX(7deg)] md:[transform:perspective(2400px)_rotateX(7deg)_rotateY(-3deg)]">
-                <DashboardScreenshot />
-              </div>
+            <div className="lg:translate-y-4">
+              <RequestFlowDiagram />
             </div>
           </div>
         </section>
