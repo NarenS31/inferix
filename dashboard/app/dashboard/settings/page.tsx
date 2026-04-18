@@ -7,6 +7,13 @@ export const dynamic = "force-dynamic";
 
 const PLAN_LIMIT_USD = 200;
 
+type ApiKeyRowModel = {
+  id: string;
+  name: string;
+  key: string;
+  lastUsedAt: Date | null;
+};
+
 function providerStatus(name: string, key?: string): { name: string; connected: boolean } {
   return { name, connected: Boolean(key) };
 }
@@ -15,7 +22,7 @@ export default async function SettingsPage(): Promise<JSX.Element> {
   const currentUser = await getCurrentUser();
   const userId = currentUser?.userId ?? "";
 
-  const [period, apiKeys] = await Promise.all([
+  const [period, apiKeys] = (await Promise.all([
     prisma.requestLog.aggregate({
       where: {
         userId,
@@ -27,7 +34,7 @@ export default async function SettingsPage(): Promise<JSX.Element> {
       where: { userId, active: true },
       orderBy: { createdAt: "asc" },
     }),
-  ]);
+  ])) as [{ _sum: { costUsd: number | null } }, ApiKeyRowModel[]];
 
   const used = Number(period._sum.costUsd ?? 0);
   const providers = [
