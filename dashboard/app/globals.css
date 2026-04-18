@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-inter), Inter, sans-serif;
+}
+
+.dashboard-shell {
+  background-color: #0A0A0A;
+}
+
+.metric-grid > .metric-card {
+  border-left-width: 1px;
+  border-left-color: #1C1C1C;
+}
+
+/* First card in each row on 2-col layout */
+@media (min-width: 640px) {
+  .metric-grid > .metric-card:nth-child(2n + 1) {
+    border-left-width: 2px;
+    border-left-color: #333333;
+  }
+}
+
+/* First card in each row on 4-col layout */
+@media (min-width: 1280px) {
+  .metric-grid > .metric-card {
+    border-left-width: 1px;
+    border-left-color: #1C1C1C;
+  }
+
+  .metric-grid > .metric-card:nth-child(4n + 1) {
+    border-left-width: 2px;
+    border-left-color: #333333;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}

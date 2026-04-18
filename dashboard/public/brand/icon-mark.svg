@@ -1,0 +1,20 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="inferixBlue" x1="36" y1="66" x2="196" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3F86D7"/>
+      <stop offset="1" stop-color="#78C3F2"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="42" cy="78" r="20" fill="url(#inferixBlue)"/>
+  <circle cx="42" cy="178" r="20" fill="url(#inferixBlue)"/>
+
+  <path d="M64 78C89 78 89 108 106 108" stroke="url(#inferixBlue)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M64 178C89 178 89 150 106 150" stroke="url(#inferixBlue)" stroke-width="16" stroke-linecap="round"/>
+
+  <rect x="96" y="40" width="20" height="176" rx="10" fill="url(#inferixBlue)"/>
+
+  <path d="M106 108C130 96 151 72 190 64" stroke="url(#inferixBlue)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M106 150C129 137 151 113 190 102" stroke="url(#inferixBlue)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M106 108C128 121 149 144 190 153" stroke="url(#inferixBlue)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
