@@ -17,10 +17,10 @@ export default function CachingPage() {
 
       <ContentSection>
         <FeatureGrid items={[
-          { title: "Semantic matching", description: "Responses are matched by meaning, not exact text. 'Summarize this article' and 'Give me a summary' hit the same cache entry.", icon: "🧠" },
-          { title: "Configurable thresholds", description: "Tune the similarity threshold per endpoint. Higher = stricter cache hits. Lower = more savings.", icon: "🎚️" },
-          { title: "TTL per endpoint", description: "Set how long cached responses live. Short for volatile data, long for stable reference content.", icon: "⏱️" },
-          { title: "Instant invalidation", description: "Clear cache entries via API when your underlying data changes without waiting for TTL expiry.", icon: "🗑️" },
+          { title: "Semantic matching", description: "Responses are matched by meaning, not exact text. 'Summarize this article' and 'Give me a summary' hit the same cache entry.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a8 8 0 0 1 8 8c0 5-8 13-8 13S4 15 4 10a8 8 0 0 1 8-8z"/><circle cx="12" cy="10" r="3"/></svg> },
+          { title: "Configurable thresholds", description: "Tune the similarity threshold per endpoint. Higher = stricter cache hits. Lower = more savings.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/></svg> },
+          { title: "TTL per endpoint", description: "Set how long cached responses live. Short for volatile data, long for stable reference content.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16.5 12"/></svg> },
+          { title: "Instant invalidation", description: "Clear cache entries via API when your underlying data changes without waiting for TTL expiry.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg> },
         ]} />
       </ContentSection>
 

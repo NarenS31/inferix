@@ -58,12 +58,12 @@ export function ContentSection({ children, className = "" }: { children: React.R
   );
 }
 
-export function FeatureGrid({ items }: { items: { title: string; description: string; icon?: string }[] }) {
+export function FeatureGrid({ items }: { items: { title: string; description: string; icon?: React.ReactNode }[] }) {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {items.map((item) => (
         <div key={item.title} className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-6">
-          {item.icon && <div className="mb-4 text-3xl">{item.icon}</div>}
+          {item.icon && <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[#1E2A38] bg-[#0D1117] text-[#06B6D4]">{item.icon}</div>}
           <h3 className="text-lg font-semibold text-[#F1F5F9]">{item.title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-[#94A3B8]">{item.description}</p>
         </div>

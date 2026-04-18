@@ -17,10 +17,10 @@ export default function LogsPage() {
 
       <ContentSection>
         <FeatureGrid items={[
-          { title: "Per-request breakdown", description: "Prompt tokens, completion tokens, cost in USD, latency in ms, and status code for every request.", icon: "📋" },
-          { title: "Provider & model tracking", description: "Know exactly which provider handled a request and at what model tier — even when rules rerouted mid-chain.", icon: "🔍" },
-          { title: "Cache hit visualization", description: "Instantly see which requests were served from cache and how much was saved.", icon: "⚡" },
-          { title: "Error surfacing", description: "Failed requests are flagged with the upstream error message so you can debug without digging through provider consoles.", icon: "🚨" },
+          { title: "Per-request breakdown", description: "Prompt tokens, completion tokens, cost in USD, latency in ms, and status code for every request.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg> },
+          { title: "Provider & model tracking", description: "Know exactly which provider handled a request and at what model tier — even when rules rerouted mid-chain.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> },
+          { title: "Cache hit visualization", description: "Instantly see which requests were served from cache and how much was saved.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
+          { title: "Error surfacing", description: "Failed requests are flagged with the upstream error message so you can debug without digging through provider consoles.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> },
         ]} />
       </ContentSection>
 
@@ -36,7 +36,7 @@ export default function LogsPage() {
             "REST API access to your own logs",
           ].map((item) => (
             <li key={item} className="flex items-start gap-3 text-[#94A3B8]">
-              <span className="mt-0.5 h-5 w-5 flex-shrink-0 rounded-full bg-[#06B6D4]/10 flex items-center justify-center text-[#06B6D4] text-xs">✓</span>
+              <span className="mt-0.5 h-5 w-5 flex-shrink-0 rounded-full bg-[#06B6D4]/10 flex items-center justify-center text-[#06B6D4]"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
               {item}
             </li>
           ))}

@@ -17,10 +17,10 @@ export default function RoutingPage() {
 
       <ContentSection>
         <FeatureGrid items={[
-          { title: "Cost ceilings", description: "Set a max spend-per-request threshold. Inferix routes to the cheapest model that fits.", icon: "💰" },
-          { title: "Model escalation chains", description: "Define an ordered list of models. Inferix falls back up the chain when cheaper options can't handle the request.", icon: "⛓️" },
-          { title: "Latency fallback", description: "When a model is slow, Inferix automatically switches to a faster alternative mid-chain.", icon: "⚡" },
-          { title: "Per-endpoint rules", description: "Apply different routing logic to each endpoint tag so creative tasks and classification tasks use different models.", icon: "🎯" },
+          { title: "Cost ceilings", description: "Set a max spend-per-request threshold. Inferix routes to the cheapest model that fits.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg> },
+          { title: "Model escalation chains", description: "Define an ordered list of models. Inferix falls back up the chain when cheaper options can't handle the request.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M8 6H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/><path d="M16 18h4a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M8 12h8"/></svg> },
+          { title: "Latency fallback", description: "When a model is slow, Inferix automatically switches to a faster alternative mid-chain.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> },
+          { title: "Per-endpoint rules", description: "Apply different routing logic to each endpoint tag so creative tasks and classification tasks use different models.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg> },
         ]} />
       </ContentSection>
 

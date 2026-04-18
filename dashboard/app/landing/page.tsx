@@ -651,7 +651,7 @@ export default function LandingPage() {
                   <div className="mt-8 space-y-4 border-t border-[#1E2A38] pt-8">
                     {plan.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3 text-sm leading-6 text-[#CBD5E1]">
-                        <span className="mt-0.5 text-[#06B6D4]">✓</span>
+                        <span className="mt-0.5 shrink-0 text-[#06B6D4]"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                         <span>{feature}</span>
                       </div>
                     ))}
