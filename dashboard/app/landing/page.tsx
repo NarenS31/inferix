@@ -146,7 +146,7 @@ function DashboardScreenshot() {
       </div>
 
       <div className="grid gap-0 md:grid-cols-[220px_minmax(0,1fr)]">
-        <aside className="border-b border-[#1E2A38] bg-[#0A0F14] p-5 md:border-b-0 md:border-r">
+        <aside className="border-b border-[#1E2A38] bg-[#0A0F14] p-4 md:border-b-0 md:border-r">
           <div className="mb-6 flex items-center gap-2 text-sm font-semibold text-[#F1F5F9]">
             <span className="h-2 w-2 rounded-full bg-[#06B6D4]" />
             Inferix
@@ -174,14 +174,14 @@ function DashboardScreenshot() {
           </div>
         </aside>
 
-        <div className="space-y-6 bg-[#0D1117] p-5 md:p-6">
+        <div className="space-y-5 bg-[#0D1117] p-4 md:p-5">
           <div className="grid gap-4 md:grid-cols-3">
             {[
               ["Spend saved", "$18,420", "+34%"],
               ["Cache hit rate", "42.8%", "+11%"],
               ["Median latency", "684ms", "-18%"],
             ].map(([label, value, delta]) => (
-              <div key={label} className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-4">
+              <div key={label} className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-3">
                 <div className="text-xs uppercase tracking-[0.18em] text-[#64748B]">{label}</div>
                 <div className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#F1F5F9]">
                   {value}
@@ -192,7 +192,7 @@ function DashboardScreenshot() {
           </div>
 
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-            <div className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-5">
+            <div className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-4">
               <div className="mb-5 flex items-center justify-between gap-4">
                 <div>
                   <div className="text-sm font-medium text-[#F1F5F9]">Routing performance</div>
@@ -215,7 +215,7 @@ function DashboardScreenshot() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-5">
+            <div className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-4">
               <div className="text-sm font-medium text-[#F1F5F9]">Top routing rules</div>
               <div className="mt-5 space-y-3">
                 {[
@@ -497,22 +497,22 @@ export default function LandingPage() {
       </header>
 
       <main>
-        <section className="overflow-hidden border-b border-[#1E2A38] bg-[#080C10] px-6 pb-8 pt-[120px] text-[#F1F5F9] md:pb-10 md:pt-[136px]">
-          <div className="mx-auto grid max-w-[1100px] gap-8 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-10">
-            <div className="max-w-[580px] border-l border-[#1E2A38] pl-5 md:pl-6">
-              <div className="inline-flex items-center gap-2 border border-[#1E2A38] bg-[#0A0F14] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#64748B]">
+        <section className="overflow-hidden border-b border-[#1E2A38] bg-[#080C10] px-4 pb-6 pt-[112px] text-[#F1F5F9] md:px-6 md:pb-8 md:pt-[124px]">
+          <div className="mx-auto grid max-w-[1100px] gap-6 lg:grid-cols-[minmax(0,0.52fr)_minmax(0,0.48fr)] lg:items-start lg:gap-7">
+            <div className="max-w-[540px]">
+              <div className="inline-flex items-center gap-2 border border-[#1E2A38] bg-[#0A0F14] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#64748B]">
                 LLM Infrastructure
               </div>
 
-              <h1 className="mt-4 max-w-[540px] text-[36px] font-black leading-[1.08] tracking-[-0.04em] text-[#F1F5F9] md:text-[52px]">
+              <h1 className="mt-3 max-w-[540px] text-[36px] font-black leading-[1.08] tracking-[-0.04em] text-[#F1F5F9] md:text-[52px]">
                 Route by policy, not luck.
               </h1>
 
-              <p className="mt-4 max-w-[500px] text-[15px] leading-6 text-[#94A3B8] md:text-[16px]">
+              <p className="mt-3 max-w-[500px] text-[15px] leading-6 text-[#94A3B8] md:text-[16px]">
                 Every request evaluated against your constraints. Failed routes fall back automatically. All decisions logged.
               </p>
 
-              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] text-[#64748B]">
+              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] text-[#64748B]">
                 <span className="font-semibold text-[#94A3B8]">Works with:</span>
                 {providers.map((provider) => (
                   <span key={provider}>
@@ -521,18 +521,20 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
+              <div className="mt-5 flex flex-wrap items-center gap-2.5 text-sm">
                 <a href="#how-it-works" className="font-medium text-[#06B6D4] hover:text-[#67E8F9]">
                   See routing live →
                 </a>
-                <a href="/login" className="border border-[#1E2A38] px-3.5 py-2 font-medium text-[#F1F5F9] transition-colors hover:border-[#2B3B4C] hover:bg-[#0A0F14]">
+                <a href="/login" className="border border-[#1E2A38] px-3 py-1.5 font-medium text-[#F1F5F9] transition-colors hover:border-[#2B3B4C] hover:bg-[#0A0F14]">
                   Open dashboard
                 </a>
               </div>
             </div>
 
-            <div className="lg:translate-y-4">
-              <RequestFlowDiagram />
+            <div className="min-w-0 lg:translate-y-1">
+              <div className="mx-auto w-full max-w-[620px] lg:ml-auto">
+                <DashboardScreenshot />
+              </div>
             </div>
           </div>
         </section>
