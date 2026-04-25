@@ -145,13 +145,13 @@ function DashboardScreenshot() {
         </div>
       </div>
 
-      <div className="grid gap-0 md:grid-cols-[220px_minmax(0,1fr)]">
-        <aside className="border-b border-[#1E2A38] bg-[#0A0F14] p-4 md:border-b-0 md:border-r">
-          <div className="mb-6 flex items-center gap-2 text-sm font-semibold text-[#F1F5F9]">
-            <span className="h-2 w-2 rounded-full bg-[#06B6D4]" />
+      <div className="grid gap-0 grid-cols-[160px_minmax(0,1fr)]">
+        <aside className="border-r border-[#1E2A38] bg-[#0A0F14] p-3">
+          <div className="mb-4 flex items-center gap-2 text-xs font-semibold text-[#F1F5F9]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
             Inferix
           </div>
-          <div className="space-y-2 text-sm text-[#64748B]">
+          <div className="space-y-1 text-xs text-[#64748B]">
             {[
               "Overview",
               "Routing Rules",
@@ -162,7 +162,7 @@ function DashboardScreenshot() {
             ].map((item, index) => (
               <div
                 key={item}
-                className={`rounded-xl border px-3 py-2 ${
+                className={`rounded-lg border px-2.5 py-1.5 ${
                   index === 0
                     ? "border-[#1E2A38] bg-[#0D1117] text-[#F1F5F9]"
                     : "border-transparent bg-transparent"
@@ -174,64 +174,59 @@ function DashboardScreenshot() {
           </div>
         </aside>
 
-        <div className="space-y-5 bg-[#0D1117] p-4 md:p-5">
-          <div className="grid gap-4 md:grid-cols-3">
+        <div className="space-y-3 bg-[#0D1117] p-3">
+          <div className="grid gap-2 grid-cols-3">
             {[
               ["Spend saved", "$18,420", "+34%"],
               ["Cache hit rate", "42.8%", "+11%"],
               ["Median latency", "684ms", "-18%"],
             ].map(([label, value, delta]) => (
-              <div key={label} className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-3">
-                <div className="text-xs uppercase tracking-[0.18em] text-[#64748B]">{label}</div>
-                <div className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#F1F5F9]">
+              <div key={label} className="rounded-xl border border-[#1E2A38] bg-[#0B1015] p-2.5">
+                <div className="text-[9px] uppercase tracking-[0.12em] text-[#64748B] truncate">{label}</div>
+                <div className="mt-2 text-lg font-semibold tracking-[-0.03em] text-[#F1F5F9] leading-none">
                   {value}
                 </div>
-                <div className="mt-2 text-sm text-[#06B6D4]">{delta} this month</div>
+                <div className="mt-1.5 text-[10px] text-[#06B6D4]">{delta}</div>
               </div>
             ))}
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-            <div className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-4">
-              <div className="mb-5 flex items-center justify-between gap-4">
-                <div>
-                  <div className="text-sm font-medium text-[#F1F5F9]">Routing performance</div>
-                  <div className="mt-1 text-sm text-[#64748B]">Quality held flat while average request cost fell.</div>
-                </div>
-                <div className="rounded-full border border-[#1E2A38] px-3 py-1 text-xs text-[#64748B]">
-                  Last 30 days
-                </div>
-              </div>
-              <div className="flex h-52 items-end gap-3 rounded-[20px] border border-[#141C25] bg-[#0A0F14] px-4 pb-4 pt-6">
-                {[44, 52, 61, 58, 71, 76, 82, 87, 94].map((height, index) => (
-                  <div key={height} className="flex flex-1 flex-col items-center gap-3">
-                    <div
-                      className="w-full rounded-t-full bg-[#06B6D4]"
-                      style={{ height: `${height}%`, opacity: 0.3 + index * 0.05 }}
-                    />
-                    <span className="text-[11px] text-[#64748B]">W{index + 1}</span>
-                  </div>
-                ))}
+          <div className="rounded-xl border border-[#1E2A38] bg-[#0B1015] p-3">
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <div className="text-xs font-medium text-[#F1F5F9]">Routing performance</div>
+              <div className="rounded-full border border-[#1E2A38] px-2 py-0.5 text-[9px] text-[#64748B]">
+                30 days
               </div>
             </div>
+            <div className="flex h-28 items-end gap-1.5 rounded-xl border border-[#141C25] bg-[#0A0F14] px-3 pb-3 pt-4">
+              {[44, 52, 61, 58, 71, 76, 82, 87, 94].map((height, index) => (
+                <div key={height} className="flex flex-1 flex-col items-center gap-1">
+                  <div
+                    className="w-full rounded-t-full bg-[#06B6D4]"
+                    style={{ height: `${height}%`, opacity: 0.3 + index * 0.05 }}
+                  />
+                  <span className="text-[8px] text-[#64748B]">W{index + 1}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            <div className="rounded-2xl border border-[#1E2A38] bg-[#0B1015] p-4">
-              <div className="text-sm font-medium text-[#F1F5F9]">Top routing rules</div>
-              <div className="mt-5 space-y-3">
-                {[
-                  ["gpt-4.1 -> gpt-4.1-mini", "1.2M req", "Saved $6,780"],
-                  ["claude-sonnet -> mistral-medium", "620K req", "Saved $4,120"],
-                  ["Repeat prompts -> cache", "2.8M hits", "Saved $7,520"],
-                ].map(([title, volume, saved]) => (
-                  <div key={title} className="rounded-[18px] border border-[#1E2A38] bg-[#0A0F14] p-4">
-                    <div className="text-sm font-medium text-[#F1F5F9]">{title}</div>
-                    <div className="mt-2 flex items-center justify-between text-xs text-[#64748B]">
-                      <span>{volume}</span>
-                      <span>{saved}</span>
-                    </div>
+          <div className="rounded-xl border border-[#1E2A38] bg-[#0B1015] p-3">
+            <div className="text-xs font-medium text-[#F1F5F9] mb-2">Top routing rules</div>
+            <div className="space-y-1.5">
+              {[
+                ["gpt-4.1 → mini", "1.2M req", "$6,780"],
+                ["sonnet → mistral", "620K req", "$4,120"],
+                ["Cache hits", "2.8M hits", "$7,520"],
+              ].map(([title, volume, saved]) => (
+                <div key={title} className="rounded-lg border border-[#1E2A38] bg-[#0A0F14] px-2.5 py-2">
+                  <div className="text-[10px] font-medium text-[#F1F5F9] truncate">{title}</div>
+                  <div className="mt-1 flex items-center justify-between text-[9px] text-[#64748B]">
+                    <span>{volume}</span>
+                    <span className="text-[#06B6D4]">{saved}</span>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -497,7 +492,7 @@ export default function LandingPage() {
       </header>
 
       <main>
-        <section className="overflow-hidden border-b border-[#1E2A38] bg-[#080C10] px-4 pb-6 pt-[112px] text-[#F1F5F9] md:px-6 md:pb-8 md:pt-[124px]">
+        <section className="overflow-x-hidden border-b border-[#1E2A38] bg-[#080C10] px-4 pb-16 pt-[112px] text-[#F1F5F9] md:px-6 md:pb-20 md:pt-[124px]">
           <div className="mx-auto grid max-w-[1100px] gap-6 lg:grid-cols-[minmax(0,0.52fr)_minmax(0,0.48fr)] lg:items-start lg:gap-7">
             <div className="max-w-[540px]">
               <div className="inline-flex items-center gap-2 border border-[#1E2A38] bg-[#0A0F14] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#64748B]">
