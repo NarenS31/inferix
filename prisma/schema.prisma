@@ -1,12 +1,7 @@
 generator client {
   provider = "prisma-client-js"
   binaryTargets = ["native", "rhel-openssl-3.0.x"]
-}
 
-generator dashboardClient {
-  provider = "prisma-client-js"
-  output   = "../dashboard/node_modules/.prisma/client"
-  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
