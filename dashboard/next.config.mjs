@@ -2,9 +2,10 @@
 const nextConfig = {
   experimental: {
     externalDir: true,
+    serverComponentsExternalPackages: ["@prisma/client", ".prisma/client"],
   },
   outputFileTracingIncludes: {
-    "**": ["./node_modules/.prisma/client/**"],
+    "*": ["./node_modules/.prisma/client/**"],
   },
 };
 
